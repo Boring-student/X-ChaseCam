@@ -4,8 +4,6 @@
 
 Yet another free to use bodycam overlay for roleplay streamers and overall general usage. Mimics the overlay of the Xcamera P500 WiFi bodycam.
 
-(Note) This repository will have multiple overlay if there're other Xcamera model that I can find.
-
 <h2 align="center">  
         How to use:
 </h2>
