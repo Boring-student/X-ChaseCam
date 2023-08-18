@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet"> 
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>X-ChaseCam</title>
+</head>
+
+<style>
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+.text {
+    color: #ffffff;
+  }
+
+  /* LOGO */
+  .logo {
+    font-size: 24px;
+    position:fixed; top:0; right: 51%; padding-top:0px;
+
+  }
+  
+  .top-left {
+	font-size: 24px;
+    position:fixed; 
+	
+  }
+</style>
+
+<body>
+  <nav class="text">
+    <div class="logo">X-ChaseCam M500 Wireless</div>
+
+    <div class="top-left-container">
+        <div class="top-left">
+            <span style="padding:0px;margin:0px;" id="month">00</span>
+            <span style="padding:0px;margin:0px;">/</span>     
+            <span style="padding:0px;margin:0.px;" id="day">00</span>
+            <span style="padding:0px;margin:0px;">/</span>
+            <span style="padding:0px;margin:0px;" id="year">0000</span>&nbsp;
+            <span style="padding:0px;margin:0px;" id="hr">00</span>
+            <span style="padding:0px;margin:0px;">:</span>
+            <span style="padding:0px;margin:0px;" id="min">00</span>
+            <span style="padding:0px;margin:0px;">:</span>
+            <span style="padding:0px;margin:0px;" id="sec">00</span>&nbsp;&nbsp;
+        </div>
+    </div>
+	
+  </nav>
+</body>
+    <script>
+
+        var d,h,m,s,animate;
+        const monthNames = ["1","2","3","4","5","6","7","8","9","10","11","12"];
+
+        function init(){
+            d=new Date();
+            clock();
+        };
+
+        function clock(){
+            d=new Date();
+            updateTime();
+            updateDate();
+            $('sec', s);
+            $('min', m);
+            $('hr', h);
+            $('day', day);
+            $('year', year);
+            $('month', monthNames[month]);
+            animate=setTimeout(clock,100);
+        };
+        
+        function updateDate(){
+            day=d.getDate();
+            month=d.getMonth();
+            year=d.getFullYear();
+        };
+        
+        function updateTime(){
+            h=d.getHours();
+            m=d.getMinutes();
+            s=d.getSeconds();
+        };
+
+        function $(id,val){
+            if(val<10){
+                val='0'+val;
+            }
+            document.getElementById(id).innerHTML=val;
+        };
+
+        window.onload=init;
+    </script>
+</html>
